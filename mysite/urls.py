@@ -17,8 +17,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mysite import views
+from django.conf import settings
+from django.contrib.staticfiles import views
 
 urlpatterns = [
 	url(r'^$', views.index),
     url(r'^admin/', admin.site.urls)
-]
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^static/(?P<path>.*)$', views.serve),
+    ]
