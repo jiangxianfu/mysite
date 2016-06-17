@@ -21,8 +21,9 @@ from django.conf import settings
 from django.contrib.staticfiles import views
 
 urlpatterns = [
-	url(r'^$', views.index),
+    url(r'^$', views.index),
     url(r'^admin/', admin.site.urls)
+    ]
 if settings.DEBUG:
     urlpatterns += [
         url(r'^static/(?P<path>.*)$', views.serve),
